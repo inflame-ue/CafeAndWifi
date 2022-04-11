@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
 
-    {% if title %}
-        <title>Cafes API - {{ title }}</title>
-    {% else %}
-        <title>Cafes API</title>
-    {% endif %}
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
-</html>
+{% block title %}Cafes API - Home{% endblock title %}
+
+{% block content %}
+    <h1>Hello world!</h1>
+{% endblock content %}

@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<!-- Inherit from the bootstrap/base.html template -->
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/fixes.html' as fixes %}
+
+<!-- Change the title of the application -->
+{% block title %} Cafes API {% endblock title %}
+
+<!-- Enable fixes for the legacy browsers -->
+{% block head %}
+    {{ super() }}
+    {{ fixes.ie8() }}
+{% endblock head %}
+
+<!-- Add custom css to the templates -->
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock styles %}
+
+<!-- Define a content block -->
+{% block content %}{% endblock content %}

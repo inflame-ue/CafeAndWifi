@@ -2,16 +2,41 @@
 
 # imports
 from flask import Flask
-import dotenv
-import os
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from typing import Callable
+from config import configs
 
-# load dotenv file
-dotenv.load_dotenv("C://EnvironmentalVariables//.env")
+# init extensions
+bootstrap = Bootstrap()
 
-# application initialization
-app = Flask(__name__)
-app.config["DEBUG"] = True
-app.config["SECRET_KEY"] = os.environ.get("MY_SECRET_KEY") or "hard_to_guess_string"
 
-# handle circular imports
-from cafes import routes
+# sqlalchemy setup
+class MySQLAlchemy(SQLAlchemy):
+    Column: Callable
+    Integer: Callable
+    Float: Callable
+    String: Callable
+    Text: Callable
+    ForeignKey: Callable
+
+
+db = MySQLAlchemy()
+
+
+# application factory
+def create_app(config_name):
+    # init the app
+    app = Flask(__name__)
+    app.config.from_object(configs[config_name])
+    configs[config_name].init_app(app)
+
+    # init the extensions(properly)
+    bootstrap.init_app(app)
+    db.init_app(app)
+
+    # register the blueprints to the application
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    return app
