@@ -1,5 +1,3 @@
-# TODO: Create configs for the project
-
 # imports
 import dotenv
 import os

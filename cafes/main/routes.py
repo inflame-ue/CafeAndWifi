@@ -1,5 +1,3 @@
-# TODO: Creates routes, custom error hadnlers for the application
-
 # imports
 from flask import render_template
 from . import main

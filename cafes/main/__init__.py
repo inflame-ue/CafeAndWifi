@@ -1,5 +1,3 @@
-# TODO: Create a main blueprint for the application
-
 # imports
 from flask import Blueprint
 

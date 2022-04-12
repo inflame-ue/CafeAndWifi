@@ -1,5 +1,3 @@
-# TODO: Create basic flask application with basic application structure
-
 # imports
 from flask import Flask
 from flask_bootstrap import Bootstrap
@@ -17,6 +15,7 @@ class MySQLAlchemy(SQLAlchemy):
     Integer: Callable
     Float: Callable
     String: Callable
+    Boolean: Callable
     Text: Callable
     ForeignKey: Callable
 
