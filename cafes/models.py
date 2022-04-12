@@ -1,4 +1,4 @@
-# TODO: Create models that will reflect an already existing database
+# TODO: Add one-to-many relationship to track what cafe did a specific user add to the datbase
 
 # imports
 from werkzeug.security import generate_password_hash, check_password_hash
