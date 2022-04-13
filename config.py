@@ -14,7 +14,7 @@ dotenv.load_dotenv("C://EnvironmentalVariables//.env")
 class BaseConfig:
     SECRET_KEY = os.environ.get("MY_SECRET_KEY") or secrets.token_hex(64)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    # SQLALCHEMY_COMMIT_ON_TEARDOWN = True deprecated, but still can be useful
     CAFES_MAIL_SUBJECT_PREFIX = "[Cafes]"
     CAFES_MAIL_SENDER = "Flasky Admin <youremail@gmail.com>"
     CAFES_ADMIN = os.environ.get("CAFES_ADMIN")
