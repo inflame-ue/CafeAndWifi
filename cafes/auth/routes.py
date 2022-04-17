@@ -8,13 +8,13 @@ from cafes.auth import auth
 # login route
 @auth.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
+    return render_template("auth/login.html")
 
 
 # register route
 @auth.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    return render_template("auth/register.html")
 
 
 # logout route
